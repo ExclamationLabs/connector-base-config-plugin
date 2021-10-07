@@ -1,0 +1,1 @@
+# connector-base-config-plugin
