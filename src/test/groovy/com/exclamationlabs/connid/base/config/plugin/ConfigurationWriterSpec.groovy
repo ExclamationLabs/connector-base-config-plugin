@@ -76,8 +76,6 @@ class ConfigurationWriterSpec extends Specification {
         cleanup:
             new File(testFolder).deleteDir()
 
-
-
     }
 
 }

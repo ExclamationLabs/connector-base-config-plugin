@@ -21,6 +21,14 @@ tasks.withType(Test) {
     useJUnitPlatform()
 }
 
+sourceSets {
+    test {
+        resources {
+            srcDirs = ['src/main/resources']
+        }
+    }
+}
+
 gradlePlugin {
     plugins {
         simplePlugin {

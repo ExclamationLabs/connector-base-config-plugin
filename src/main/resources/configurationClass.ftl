@@ -2,6 +2,7 @@ package ${packageName};
 
 import com.exclamationlabs.connid.base.connector.configuration.ConnectorConfiguration;
 import com.exclamationlabs.connid.base.connector.configuration.ConfigurationInfo;
+import com.exclamationlabs.connid.base.connector.configuration.ConfigurationReader;
 import org.identityconnectors.framework.common.objects.ConnectorMessages;
 import org.identityconnectors.framework.spi.ConfigurationClass;
 import org.identityconnectors.framework.spi.ConfigurationProperty;
@@ -85,6 +86,14 @@ public class ${className} implements ConnectorConfiguration {
 
     public ${className}() {
         source = "default";
+        name = "default";
+        active = true;
+    }
+
+    public ${className}(String configurationName) {
+        name = configurationName;
+        active = true;
+        ConfigurationReader.prepareTestConfiguration(this);
     }
 
 <#list items as item>
@@ -112,34 +121,42 @@ public class ${className} implements ConnectorConfiguration {
         connectorMessages = messages;
     }
 
+    @Override
     public String getCurrentToken() {
         return currentToken;
     }
 
+    @Override
     public void setCurrentToken(String input) {
         currentToken = input;
     }
 
+    @Override
     public String getSource() {
         return source;
     }
 
+    @Override
     public void setSource(String input) {
         source = input;
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public void setName(String input) {
         name = input;
     }
 
+    @Override
     public Boolean getActive() {
         return active;
     }
 
+    @Override
     public void setActive(Boolean input) {
         active = input;
     }
