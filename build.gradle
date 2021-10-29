@@ -70,7 +70,7 @@ publishing {
                     }
                 }
                 scm {
-                    url = "https://github.com/ExclamationLabs/connector-base-config-plugin/tree/master"
+                    url = "https://github.com/ExclamationLabs/connector-base-config-plugin/tree/main"
                 }
             }
         }
