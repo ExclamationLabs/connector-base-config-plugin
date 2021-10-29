@@ -26,6 +26,8 @@ class DirectAccessToken extends ConfigurationGroup {
     Set<ConfigurationItem> getConfigurationItems() {
         [ new ConfigurationItem.Builder()
             .name('token', getYamlPath())
+            .displayText('Token')
+            .helpText('Fixed token value providing access to the connector')
             .required(true)
             .type(ConfigurationItemType.STRING).build()
         ] as Set<ConfigurationItem>

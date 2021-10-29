@@ -5,9 +5,13 @@ repositories {
 apply plugin: 'java-gradle-plugin'
 apply plugin: 'java'
 apply plugin: 'groovy'
+apply plugin: 'java-library'
+apply plugin: 'maven-publish'
 
 def build_version = System.getenv('BUILD_NUMBER') == null ? 'SNAPSHOT' : System.getenv('BUILD_NUMBER')
 project.version="${software_version}-${build_version}"
+
+group = 'com.exclamationlabs.connid'
 
 dependencies {
     api 'org.yaml:snakeyaml:1.29'
@@ -37,3 +41,41 @@ gradlePlugin {
         }
     }
 }
+
+
+task sourceJar(type: Jar) {
+    from sourceSets.main.allJava
+    archiveClassifier = 'source'
+}
+
+task copyPom(type: Copy) {
+    from 'build/publications/connector_base/pom-default.xml'
+    into 'build/libs'
+    rename ('pom-default.xml', "${project.name}-${project.version}.pom")
+}
+
+publishing {
+    publications {
+        connector_base(MavenPublication) {
+            from components.java
+            artifact sourceJar
+            pom {
+                name = "Connector Base: Configuration Generation Plugin"
+                description = "Configuration Generation Plugin for Base Connector Framework"
+                url = "https://github.com/ExclamationLabs/connector-base-config-plugin"
+                licenses {
+                    license {
+                        name = "The Apache License, Version 2.0"
+                        url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                    }
+                }
+                scm {
+                    url = "https://github.com/ExclamationLabs/connector-base-config-plugin/tree/master"
+                }
+            }
+        }
+    }
+}
+
+build.dependsOn(copyPom)
+copyPom.dependsOn(publishToMavenLocal)

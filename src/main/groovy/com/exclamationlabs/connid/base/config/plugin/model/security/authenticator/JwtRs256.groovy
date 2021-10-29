@@ -24,31 +24,43 @@ class JwtRs256 extends ConfigurationGroup {
 
     @Override
     Set<ConfigurationItem> getConfigurationItems() {
-        [ new ConfigurationItem.Builder()
-            .name('issuer', getYamlPath())
-            .required(true)
-            .type(ConfigurationItemType.STRING).build(),
-          new ConfigurationItem.Builder()
-                  .name('subject', getYamlPath())
-                  .required(false)
-                  .type(ConfigurationItemType.STRING).build(),
-          new ConfigurationItem.Builder()
-                  .name('expirationPeriod', getYamlPath())
-                  .required(true)
-                  .type(ConfigurationItemType.LONG).build(),
-          new ConfigurationItem.Builder()
-                  .name('audience', getYamlPath())
-                  .required(false)
-                  .type(ConfigurationItemType.STRING).build(),
-          new ConfigurationItem.Builder()
-                  .name('useIssuedAt', getYamlPath())
-                  .required(false)
-                  .type(ConfigurationItemType.BOOLEAN).build(),
-          new ConfigurationItem.Builder()
-                  .name('extraClaimData', getYamlPath())
-                  .required(false)
-                  .internal(true)
-                  .type(ConfigurationItemType.STRING_MAP).build()
+        [new ConfigurationItem.Builder()
+                 .name('issuer', getYamlPath())
+                 .displayText('JWT Issuer')
+                 .helpText('Issuer for JWT RS256 Authentication')
+                 .required(true)
+                 .type(ConfigurationItemType.STRING).build(),
+         new ConfigurationItem.Builder()
+                 .name('subject', getYamlPath())
+                 .displayText('JWT Subject')
+                 .helpText('Subject for JWT RS256 Authentication')
+                 .required(false)
+                 .type(ConfigurationItemType.STRING).build(),
+         new ConfigurationItem.Builder()
+                 .name('expirationPeriod', getYamlPath())
+                 .displayText('JWT Expiration')
+                 .helpText('Expiration period, in milliseconds, ' +
+                 'of JWT RS256 Authentication')
+                 .required(true)
+                 .type(ConfigurationItemType.LONG).build(),
+         new ConfigurationItem.Builder()
+                 .name('audience', getYamlPath())
+                 .displayText('JWT Audience')
+                 .helpText('Audience for JWT RS256 Authentication')
+                 .required(false)
+                 .type(ConfigurationItemType.STRING).build(),
+         new ConfigurationItem.Builder()
+                 .name('useIssuedAt', getYamlPath())
+                 .displayText('JWT Use Issued At')
+                 .helpText('Whether or not to include `Issued At` information ' +
+                 'during authentication attempt.')
+                 .required(false)
+                 .type(ConfigurationItemType.BOOLEAN).build(),
+         new ConfigurationItem.Builder()
+                 .name('extraClaimData', getYamlPath())
+                 .required(false)
+                 .internal(true)
+                 .type(ConfigurationItemType.STRING_MAP).build()
         ] as Set<ConfigurationItem>
     }
 

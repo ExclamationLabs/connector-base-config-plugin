@@ -24,14 +24,17 @@ class Oauth2Jwt extends ConfigurationGroup {
 
     @Override
     Set<ConfigurationItem> getConfigurationItems() {
-        [ new ConfigurationItem.Builder()
-            .name('tokenUrl', getYamlPath())
-            .required(true)
-            .type(ConfigurationItemType.STRING).build(),
-          new ConfigurationItem.Builder()
-                  .name('oauth2Information', getYamlPath())
-                  .required(false)
-                  .type(ConfigurationItemType.STRING_MAP).build()
+        [new ConfigurationItem.Builder()
+                 .name('tokenUrl', getYamlPath())
+                 .displayText('OAuth2 Token URL')
+                 .helpText('URL used to obtain OAuth2 token')
+                 .required(true)
+                 .type(ConfigurationItemType.STRING).build(),
+         new ConfigurationItem.Builder()
+                 .name('oauth2Information', getYamlPath())
+                 .internal(true)
+                 .required(false)
+                 .type(ConfigurationItemType.STRING_MAP).build()
         ] as Set<ConfigurationItem>
     }
 

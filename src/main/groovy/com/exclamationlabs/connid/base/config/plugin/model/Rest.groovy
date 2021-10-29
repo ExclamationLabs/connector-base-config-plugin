@@ -24,6 +24,9 @@ class Rest extends ConfigurationGroup {
             new ConfigurationItem.Builder()
                     .name('ioErrorRetries', getYamlPath())
                     .required(false)
+                    .displayText('IO Error Retries')
+                    .helpText('If IO Error occurs during API invocation, ' +
+                            'this number of retries will be attempted before giving up')
                     .type(ConfigurationItemType.INT)
                     .validations(['@Min(1)', '@Max(100)'])
                     .defaultValue(5).build()

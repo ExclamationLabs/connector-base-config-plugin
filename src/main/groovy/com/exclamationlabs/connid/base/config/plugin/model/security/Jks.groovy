@@ -26,14 +26,20 @@ class Jks extends ConfigurationGroup {
     Set<ConfigurationItem> getConfigurationItems() {
         [new ConfigurationItem.Builder()
                  .name('file', getYamlPath())
+                 .displayText('JKS File')
+                 .helpText('Full file path to .jks file')
                  .required(true)
                  .type(ConfigurationItemType.STRING).build(),
          new ConfigurationItem.Builder()
                  .name('password', getYamlPath())
+                 .displayText('JKS Password')
+                 .helpText('Password value protecting the .jks file')
                  .required(true)
                  .type(ConfigurationItemType.STRING).build(),
          new ConfigurationItem.Builder()
                  .name('alias', getYamlPath())
+                 .displayText('JKS Alias')
+                 .helpText('Alias value for the .jks file')
                  .required(true)
                  .type(ConfigurationItemType.STRING).build()
         ] as Set<ConfigurationItem>

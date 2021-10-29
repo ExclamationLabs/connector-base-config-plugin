@@ -24,18 +24,25 @@ class JwtHs256 extends ConfigurationGroup {
 
     @Override
     Set<ConfigurationItem> getConfigurationItems() {
-        [ new ConfigurationItem.Builder()
-            .name('issuer', getYamlPath())
-            .required(true)
-            .type(ConfigurationItemType.STRING).build(),
-          new ConfigurationItem.Builder()
-                  .name('secret', getYamlPath())
-                  .required(true)
-                  .type(ConfigurationItemType.STRING).build(),
-          new ConfigurationItem.Builder()
-                  .name('expirationPeriod', getYamlPath())
-                  .required(true)
-                  .type(ConfigurationItemType.LONG).build()
+        [new ConfigurationItem.Builder()
+                 .name('issuer', getYamlPath())
+                 .displayText('JWT Issuer')
+                 .helpText('Issuer for JWT HS256 Authentication')
+                 .required(true)
+                 .type(ConfigurationItemType.STRING).build(),
+         new ConfigurationItem.Builder()
+                 .name('secret', getYamlPath())
+                 .displayText('JWT Secret')
+                 .helpText('Secret for JWT HS256 Authentication')
+                 .required(true)
+                 .type(ConfigurationItemType.STRING).build(),
+         new ConfigurationItem.Builder()
+                 .name('expirationPeriod', getYamlPath())
+                 .displayText('JWT Expiration')
+                 .helpText('Expiration period, in milliseconds' +
+                         ', for JWT HS256 Authentication')
+                 .required(true)
+                 .type(ConfigurationItemType.LONG).build()
         ] as Set<ConfigurationItem>
     }
 

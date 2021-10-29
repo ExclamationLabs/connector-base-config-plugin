@@ -24,30 +24,41 @@ class Oauth2AuthorizationCode extends ConfigurationGroup {
 
     @Override
     Set<ConfigurationItem> getConfigurationItems() {
-        [ new ConfigurationItem.Builder()
-            .name('tokenUrl', getYamlPath())
-            .required(true)
-            .type(ConfigurationItemType.STRING).build(),
-          new ConfigurationItem.Builder()
-                  .name('authorizationCode', getYamlPath())
-                  .required(true)
-                  .type(ConfigurationItemType.STRING).build(),
-          new ConfigurationItem.Builder()
-                  .name('clientId', getYamlPath())
-                  .required(false)
-                  .type(ConfigurationItemType.STRING).build(),
-          new ConfigurationItem.Builder()
-                  .name('clientSecret', getYamlPath())
-                  .required(false)
-                  .type(ConfigurationItemType.STRING).build(),
-          new ConfigurationItem.Builder()
-                  .name('redirectUri', getYamlPath())
-                  .required(false)
-                  .type(ConfigurationItemType.STRING).build(),
-          new ConfigurationItem.Builder()
-                  .name('oauth2Information', getYamlPath())
-                  .required(false)
-                  .type(ConfigurationItemType.STRING_MAP).build()
+        [new ConfigurationItem.Builder()
+                 .name('tokenUrl', getYamlPath())
+                 .displayText('OAuth2 Token URL')
+                 .helpText('URL used to obtain OAuth2 token')
+                 .required(true)
+                 .type(ConfigurationItemType.STRING).build(),
+         new ConfigurationItem.Builder()
+                 .name('authorizationCode', getYamlPath())
+                 .displayText('OAuth2 Authorization Code')
+                 .helpText('Authorization code used for OAuth2 access')
+                 .required(true)
+                 .type(ConfigurationItemType.STRING).build(),
+         new ConfigurationItem.Builder()
+                 .name('clientId', getYamlPath())
+                 .displayText('OAuth2 Client Id')
+                 .helpText('OAuth2 Client Id')
+                 .required(false)
+                 .type(ConfigurationItemType.STRING).build(),
+         new ConfigurationItem.Builder()
+                 .name('clientSecret', getYamlPath())
+                 .displayText('OAuth2 Client Secret')
+                 .helpText('OAuth2 Client Secret')
+                 .required(false)
+                 .type(ConfigurationItemType.STRING).build(),
+         new ConfigurationItem.Builder()
+                 .name('redirectUri', getYamlPath())
+                 .displayText('OAuth2 Redirect URI')
+                 .helpText('Redirect URI for OAuth2 configuration (not always used)')
+                 .required(false)
+                 .type(ConfigurationItemType.STRING).build(),
+         new ConfigurationItem.Builder()
+                 .name('oauth2Information', getYamlPath())
+                 .required(false)
+                 .internal(true)
+                 .type(ConfigurationItemType.STRING_MAP).build()
         ] as Set<ConfigurationItem>
     }
 

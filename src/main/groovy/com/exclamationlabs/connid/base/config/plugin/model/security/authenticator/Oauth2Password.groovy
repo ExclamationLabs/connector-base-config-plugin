@@ -24,26 +24,36 @@ class Oauth2Password extends ConfigurationGroup {
 
     @Override
     Set<ConfigurationItem> getConfigurationItems() {
-        [ new ConfigurationItem.Builder()
-            .name('tokenUrl', getYamlPath())
-            .required(true)
-            .type(ConfigurationItemType.STRING).build(),
-          new ConfigurationItem.Builder()
-                  .name('encodedSecret', getYamlPath())
-                  .required(true)
-                  .type(ConfigurationItemType.STRING).build(),
-          new ConfigurationItem.Builder()
-                  .name('username', getYamlPath())
-                  .required(true)
-                  .type(ConfigurationItemType.STRING).build(),
-          new ConfigurationItem.Builder()
-                  .name('password', getYamlPath())
-                  .required(true)
-                  .type(ConfigurationItemType.STRING).build(),
-          new ConfigurationItem.Builder()
-                  .name('oauth2Information', getYamlPath())
-                  .required(false)
-                  .type(ConfigurationItemType.STRING_MAP).build()
+        [new ConfigurationItem.Builder()
+                 .name('tokenUrl', getYamlPath())
+                 .displayText('OAuth2 Token URL')
+                 .helpText('URL used to obtain OAuth2 token')
+                 .required(true)
+                 .type(ConfigurationItemType.STRING).build(),
+         new ConfigurationItem.Builder()
+                 .name('encodedSecret', getYamlPath())
+                 .displayText('OAuth2 Encoded Secret')
+                 .helpText('Encoded secret used for access (usually a base 64 ' +
+                         'encoded version of some user credential)')
+                 .required(true)
+                 .type(ConfigurationItemType.STRING).build(),
+         new ConfigurationItem.Builder()
+                 .name('username', getYamlPath())
+                 .displayText('OAuth2 Username')
+                 .helpText('Account username pertained to OAuth2 access')
+                 .required(true)
+                 .type(ConfigurationItemType.STRING).build(),
+         new ConfigurationItem.Builder()
+                 .name('password', getYamlPath())
+                 .displayText('OAuth2 Password')
+                 .helpText('Account password pertained to OAuth2 access')
+                 .required(true)
+                 .type(ConfigurationItemType.STRING).build(),
+         new ConfigurationItem.Builder()
+                 .name('oauth2Information', getYamlPath())
+                 .required(false)
+                 .internal(true)
+                 .type(ConfigurationItemType.STRING_MAP).build()
         ] as Set<ConfigurationItem>
     }
 

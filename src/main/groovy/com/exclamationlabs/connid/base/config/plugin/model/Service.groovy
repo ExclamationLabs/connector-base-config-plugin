@@ -24,6 +24,9 @@ class Service extends ConfigurationGroup {
             new ConfigurationItem.Builder()
                     .name('serviceUrl', getYamlPath())
                     .required(true)
+                    .displayText('Service URL')
+                    .helpText('The base service URL for the API this connector' +
+                    ' needs to access to get or store data.')
                     .type(ConfigurationItemType.STRING).build()
         ] as Set<ConfigurationItem>
     }
