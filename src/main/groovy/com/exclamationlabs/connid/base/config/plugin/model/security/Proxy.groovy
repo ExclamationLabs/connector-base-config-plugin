@@ -25,19 +25,19 @@ class Proxy extends ConfigurationGroup {
     @Override
     Set<ConfigurationItem> getConfigurationItems() {
         [new ConfigurationItem.Builder()
-                 .name('host', getYamlPath())
+                 .name('proxyHost', getYamlPath())
                  .displayText('Proxy Host')
                  .helpText('Domain or IP Address of Proxy Server')
                  .required(true)
                  .type(ConfigurationItemType.STRING).build(),
          new ConfigurationItem.Builder()
-                 .name('port', getYamlPath())
+                 .name('proxyPort', getYamlPath())
                  .displayText('Proxy Port')
                  .helpText('Port Number of Proxy Server')
                  .required(true)
                  .type(ConfigurationItemType.INT).build(),
          new ConfigurationItem.Builder()
-                 .name('type', getYamlPath())
+                 .name('proxyType', getYamlPath())
                  .displayText('Proxy Type')
                  .helpText('Type of Proxy Server - either `socks5` or `http`')
                  .required(true)

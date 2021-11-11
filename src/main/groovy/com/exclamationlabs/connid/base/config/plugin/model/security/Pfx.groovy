@@ -25,13 +25,13 @@ class Pfx extends ConfigurationGroup {
     @Override
     Set<ConfigurationItem> getConfigurationItems() {
         [new ConfigurationItem.Builder()
-                 .name('file', getYamlPath())
+                 .name('pfxFile', getYamlPath())
                  .displayText('PFX File')
                  .helpText('Full file path to .pfx file')
                  .required(true)
                  .type(ConfigurationItemType.STRING).build(),
          new ConfigurationItem.Builder()
-                 .name('password', getYamlPath())
+                 .name('pfxPassword', getYamlPath())
                  .displayText('PFX Password')
                  .helpText('Password value protecting the .pfx file')
                  .required(true)

@@ -16,6 +16,7 @@ import com.exclamationlabs.connid.base.config.plugin.model.ConfigurationGroup
 import com.exclamationlabs.connid.base.config.plugin.model.ConfigurationItem
 import com.exclamationlabs.connid.base.config.plugin.model.ConfigurationItemType
 import com.exclamationlabs.connid.base.config.plugin.model.Rest
+import com.exclamationlabs.connid.base.config.plugin.model.Results
 import com.exclamationlabs.connid.base.config.plugin.model.Service
 import com.exclamationlabs.connid.base.config.plugin.model.security.HttpBasicAuth
 import com.exclamationlabs.connid.base.config.plugin.model.security.Jks
@@ -50,6 +51,7 @@ class ConfigurationProcessor {
         groups =
                 [
                         new Rest(),
+                        new Results(),
                         new Service(),
                         new HttpBasicAuth(),
                         new Proxy(),

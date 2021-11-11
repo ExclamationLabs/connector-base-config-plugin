@@ -38,13 +38,13 @@ class Oauth2Password extends ConfigurationGroup {
                  .required(true)
                  .type(ConfigurationItemType.STRING).build(),
          new ConfigurationItem.Builder()
-                 .name('username', getYamlPath())
+                 .name('oauth2Username', getYamlPath())
                  .displayText('OAuth2 Username')
                  .helpText('Account username pertained to OAuth2 access')
                  .required(true)
                  .type(ConfigurationItemType.STRING).build(),
          new ConfigurationItem.Builder()
-                 .name('password', getYamlPath())
+                 .name('oauth2Password', getYamlPath())
                  .displayText('OAuth2 Password')
                  .helpText('Account password pertained to OAuth2 access')
                  .required(true)

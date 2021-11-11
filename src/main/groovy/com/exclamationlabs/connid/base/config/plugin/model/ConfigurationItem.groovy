@@ -67,6 +67,7 @@ class ConfigurationItem {
     String getJavaType() {
         def output
         switch (this.type) {
+            case ConfigurationItemType.GUARDED_STRING: output = 'GuardedString'; break
             case ConfigurationItemType.LONG: output = 'Long'; break
             case ConfigurationItemType.INT: output ='Integer'; break
             case ConfigurationItemType.BOOLEAN: output = 'Boolean'; break
@@ -83,15 +84,15 @@ class ConfigurationItem {
     }
 
     String getName() {
-        this.name
+        this.baseName
     }
 
     String getNameUpperCaseFirst() {
-        this.name.capitalize()
+        this.baseName.capitalize()
     }
 
     void setName(String name) {
-        this.name = name
+        this.baseName = name
     }
 
     def getDefaultValue() {
