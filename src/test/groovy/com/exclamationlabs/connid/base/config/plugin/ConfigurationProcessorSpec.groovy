@@ -41,7 +41,7 @@ class ConfigurationProcessorSpec extends Specification {
 
         then:
             groups
-            15 == groups.size()
+            16 == groups.size()
             groups.contains(new Rest())
             groups.contains(new Service())
             groups.contains(new HttpBasicAuth())
@@ -136,7 +136,7 @@ custom:
             'com.exclamationlabs.connid.base.testme.configuration' == processor.outputPackage
             'TestMeConfiguration' == processor.outputClassName
             processor.configurationItems
-            54 == processor.configurationItems.size()
+            40 == processor.configurationItems.size()
     }
 
     def 'missing name'() {

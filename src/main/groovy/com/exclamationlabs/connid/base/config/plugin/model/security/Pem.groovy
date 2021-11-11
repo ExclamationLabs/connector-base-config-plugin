@@ -25,7 +25,7 @@ class Pem extends ConfigurationGroup {
     @Override
     Set<ConfigurationItem> getConfigurationItems() {
         [new ConfigurationItem.Builder()
-                 .name('file', getYamlPath())
+                 .name('pemFile', getYamlPath())
                  .displayText('PEM File')
                  .helpText('Full file path to .pem file')
                  .required(true)

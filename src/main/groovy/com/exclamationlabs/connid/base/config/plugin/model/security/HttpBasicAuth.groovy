@@ -25,14 +25,14 @@ class HttpBasicAuth extends ConfigurationGroup {
     @Override
     Set<ConfigurationItem> getConfigurationItems() {
         [ new ConfigurationItem.Builder()
-            .name('username', getYamlPath())
+            .name('basicUsername', getYamlPath())
             .displayText('HTTP Basic Auth Username')
             .helpText('HTTP Basic Authentication Username value')
             .required(true)
             .validations(['@NotBlank'])
             .type(ConfigurationItemType.STRING).build(),
           new ConfigurationItem.Builder()
-              .name('password', getYamlPath())
+              .name('basicPassword', getYamlPath())
               .required(true)
               .displayText('HTTP Basic Auth Password')
               .helpText('HTTP Basic Authentication Password value')

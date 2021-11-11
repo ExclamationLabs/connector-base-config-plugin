@@ -17,6 +17,7 @@ enum ConfigurationItemType {
     LONG,
     FLOAT,
     BOOLEAN,
+    GUARDED_STRING,
     STRING,
     STRING_MAP
 
