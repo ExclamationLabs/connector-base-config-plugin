@@ -12,6 +12,7 @@
 */
 package com.exclamationlabs.connid.base.config.plugin
 
+import com.exclamationlabs.connid.base.config.plugin.model.ConfigurationItemType
 import com.exclamationlabs.connid.base.config.plugin.model.Rest
 import com.exclamationlabs.connid.base.config.plugin.model.Service
 import com.exclamationlabs.connid.base.config.plugin.model.security.HttpBasicAuth
@@ -137,6 +138,48 @@ custom:
             'TestMeConfiguration' == processor.outputClassName
             processor.configurationItems
             39 == processor.configurationItems.size()
+    }
+
+    def 'happyPath single custom item'() {
+        given:
+        def happyData = """
+---
+name: 'myconn'
+configurationClass:
+  name: 'TestMeConfiguration'
+  package: 'com.exclamationlabs.connid.base.testme.configuration'
+custom:
+  items:
+    required:
+      mine1:
+        type: int
+        default: 5
+        validations:
+          - '@Min(1)'
+          - '@Max(10)'
+        displayText: 'test display'
+        helpText: 'test help'
+"""
+
+        ConfigurationProcessor processor = setupProcessor(happyData)
+
+        when:
+        processor.execute()
+
+        then:
+        1 == 1
+        'myconn' == processor.name
+        'com.exclamationlabs.connid.base.testme.configuration' == processor.outputPackage
+        'TestMeConfiguration' == processor.outputClassName
+        processor.configurationItems
+        1 == processor.configurationItems.size()
+
+        def singleItem = processor.configurationItems.getAt(0)
+        ConfigurationItemType.INT == singleItem.getType()
+        5 == singleItem.getDefaultValue()
+        'test display' == singleItem.getDisplayText()
+        'test help' == singleItem.getHelpText()
+
     }
 
     def 'missing name'() {
