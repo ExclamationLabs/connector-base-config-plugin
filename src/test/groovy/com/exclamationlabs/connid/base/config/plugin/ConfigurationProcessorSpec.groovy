@@ -136,7 +136,7 @@ custom:
             'com.exclamationlabs.connid.base.testme.configuration' == processor.outputPackage
             'TestMeConfiguration' == processor.outputClassName
             processor.configurationItems
-            40 == processor.configurationItems.size()
+            39 == processor.configurationItems.size()
     }
 
     def 'missing name'() {
