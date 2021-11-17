@@ -216,8 +216,20 @@ class ConfigurationProcessor {
                 if (itemData.containsKey('default') && itemData['default'] != null) {
                     itemDefaultValue = itemData['default']
                 }
+
+                def itemDisplayText = null
+                if (itemData.containsKey('displayText') && itemData['displayText'] != null) {
+                    itemDisplayText = itemData['displayText']
+                }
+
+                def itemHelpText = null
+                if (itemData.containsKey('helpText') && itemData['helpText'] != null) {
+                    itemHelpText = itemData['helpText']
+                }
+
                 ConfigurationItem itemToAdd = new ConfigurationItem.Builder().name(item.key)
                     .defaultValue(itemDefaultValue).required(requiredItems).
+                        displayText(itemDisplayText).helpText(itemHelpText).
                         validations(validations).type(itemType).build()
                 configurationItems.add(itemToAdd)
         }
