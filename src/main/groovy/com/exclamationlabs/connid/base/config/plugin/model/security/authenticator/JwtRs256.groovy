@@ -55,12 +55,7 @@ class JwtRs256 extends ConfigurationGroup {
                  .helpText('Whether or not to include `Issued At` information ' +
                  'during authentication attempt.')
                  .required(false)
-                 .type(ConfigurationItemType.BOOLEAN).build(),
-         new ConfigurationItem.Builder()
-                 .name('extraClaimData', getYamlPath())
-                 .required(false)
-                 .internal(true)
-                 .type(ConfigurationItemType.STRING_MAP).build()
+                 .type(ConfigurationItemType.BOOLEAN).build()
         ] as Set<ConfigurationItem>
     }
 
