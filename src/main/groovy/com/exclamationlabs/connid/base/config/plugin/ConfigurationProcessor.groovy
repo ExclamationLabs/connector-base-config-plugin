@@ -181,7 +181,7 @@ class ConfigurationProcessor {
                         itemsDataMap['required'] instanceof Map) {
                     parseCustomItemsDetail((Map) itemsDataMap['required'], true)
                 } else if ((!requiredItems) && itemsDataMap.containsKey('optional')
-                        && itemsDataMap['required'] instanceof Map) {
+                        && itemsDataMap['optional'] instanceof Map) {
                     parseCustomItemsDetail((Map) itemsDataMap['optional'], false)
                 }
             }

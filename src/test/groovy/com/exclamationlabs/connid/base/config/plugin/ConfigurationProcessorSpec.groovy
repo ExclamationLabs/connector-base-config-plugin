@@ -140,7 +140,7 @@ custom:
             39 == processor.configurationItems.size()
     }
 
-    def 'happyPath single custom item'() {
+    def 'happyPath single custom required item'() {
         given:
         def happyData = """
 ---
@@ -151,6 +151,48 @@ configurationClass:
 custom:
   items:
     required:
+      mine1:
+        type: int
+        default: 5
+        validations:
+          - '@Min(1)'
+          - '@Max(10)'
+        displayText: 'test display'
+        helpText: 'test help'
+"""
+
+        ConfigurationProcessor processor = setupProcessor(happyData)
+
+        when:
+        processor.execute()
+
+        then:
+        1 == 1
+        'myconn' == processor.name
+        'com.exclamationlabs.connid.base.testme.configuration' == processor.outputPackage
+        'TestMeConfiguration' == processor.outputClassName
+        processor.configurationItems
+        1 == processor.configurationItems.size()
+
+        def singleItem = processor.configurationItems.getAt(0)
+        ConfigurationItemType.INT == singleItem.getType()
+        5 == singleItem.getDefaultValue()
+        'test display' == singleItem.getDisplayText()
+        'test help' == singleItem.getHelpText()
+
+    }
+
+    def 'happyPath single custom optional item'() {
+        given:
+        def happyData = """
+---
+name: 'myconn'
+configurationClass:
+  name: 'TestMeConfiguration'
+  package: 'com.exclamationlabs.connid.base.testme.configuration'
+custom:
+  items:
+    optional:
       mine1:
         type: int
         default: 5
