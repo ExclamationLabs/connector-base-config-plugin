@@ -114,8 +114,7 @@ custom:
         type: string # subset of string
         default: 'http://www.google.com'
       mine7:
-        type: string
-        default: 2021-10-01
+        type: guarded_string
   helpText:
     serviceUrl:
       display: 'My Service URL'

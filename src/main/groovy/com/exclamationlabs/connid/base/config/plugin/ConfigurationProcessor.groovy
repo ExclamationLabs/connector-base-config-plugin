@@ -264,6 +264,15 @@ class ConfigurationProcessor {
         configurationItems
     }
 
+    boolean hasGuardedStringItems() {
+        for (ConfigurationItem current : configurationItems) {
+            if (current.type == ConfigurationItemType.GUARDED_STRING) {
+                return true
+            }
+        }
+        false
+    }
+
     void setConfigurationItems(Set<ConfigurationItem> configurationItems) {
         this.configurationItems = configurationItems
     }
