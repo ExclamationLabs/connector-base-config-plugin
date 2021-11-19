@@ -37,6 +37,7 @@ class ConfigurationWriter {
             [
                 'packageName': processor.getOutputPackage(),
                 'className': processor.getOutputClassName(),
+                'hasGuardedString': processor.hasGuardedStringItems(),
                 'items': processor.getConfigurationItems(),
                 'groups': processor.getConfigurationGroups(),
                 'allInterfaces': processor.getAllConfigurationInterfaces(),

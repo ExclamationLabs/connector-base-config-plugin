@@ -59,7 +59,7 @@ class ConfigurationWriterSpec extends Specification {
                              .internal(true)
                              .defaultValue('myInternal def')
                              .helpText('myInternal help')
-                             .type(ConfigurationItemType.STRING).build()
+                             .type(ConfigurationItemType.GUARDED_STRING).build()
                     ] as Set<ConfigurationItem>
 
             ConfigurationWriter writer = new ConfigurationWriter(
