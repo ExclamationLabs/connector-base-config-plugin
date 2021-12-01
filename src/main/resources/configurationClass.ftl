@@ -103,6 +103,7 @@ public class ${className} implements ConnectorConfiguration {
     @ConfigurationProperty(
         displayMessageKey = "${item.getDisplayText()}",
         helpMessageKey = "${item.getHelpText()}",
+        confidential = ${item.getConfidentialString()},
         required = ${item.getRequiredString()})
     public ${item.getJavaType()} get${item.getNameUpperCaseFirst()}() {
         return this.${item.name};

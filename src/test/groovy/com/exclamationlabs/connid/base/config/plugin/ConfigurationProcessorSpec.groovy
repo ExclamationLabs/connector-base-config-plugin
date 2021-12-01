@@ -110,11 +110,14 @@ custom:
       mine5:
         type: string # subset of string
         default: hi@hi.com
+        confidential: true
       mine6:
         type: string # subset of string
         default: 'http://www.google.com'
       mine7:
         type: guarded_string
+      mine8:
+        type: string_array
   helpText:
     serviceUrl:
       display: 'My Service URL'
@@ -136,7 +139,7 @@ custom:
             'com.exclamationlabs.connid.base.testme.configuration' == processor.outputPackage
             'TestMeConfiguration' == processor.outputClassName
             processor.configurationItems
-            39 == processor.configurationItems.size()
+            40 == processor.configurationItems.size()
     }
 
     def 'happyPath single custom required item'() {
@@ -153,6 +156,7 @@ custom:
       mine1:
         type: int
         default: 5
+        confidential: true
         validations:
           - '@Min(1)'
           - '@Max(10)'
@@ -178,7 +182,7 @@ custom:
         5 == singleItem.getDefaultValue()
         'test display' == singleItem.getDisplayText()
         'test help' == singleItem.getHelpText()
-
+        singleItem.getConfidential()
     }
 
     def 'happyPath single custom optional item'() {

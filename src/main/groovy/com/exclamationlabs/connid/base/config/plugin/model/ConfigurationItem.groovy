@@ -20,6 +20,7 @@ class ConfigurationItem {
     private String name
     private String baseName
     private def defaultValue
+    private Boolean confidential
     private String displayText
     private String helpText
     private List<String> yamlPath
@@ -34,6 +35,7 @@ class ConfigurationItem {
         required = builderInput.getRequired()
         internal = builderInput.getInternal()
         type = builderInput.getType()
+        confidential = builderInput.getConfidential()
         defaultValue = builderInput.getDefaultValue()
         displayText = builderInput.getDisplayText()
         helpText = builderInput.getHelpText()
@@ -42,6 +44,14 @@ class ConfigurationItem {
 
     List<String> getValidations() {
         this.validations
+    }
+
+    Boolean getConfidential() {
+        this.confidential == null ? false : this.confidential
+    }
+
+    String getConfidentialString() {
+        this.confidential ? 'true' : 'false'
     }
 
     Boolean getRequired() {
@@ -73,6 +83,7 @@ class ConfigurationItem {
             case ConfigurationItemType.BOOLEAN: output = 'Boolean'; break
             case ConfigurationItemType.FLOAT: output = 'Float'; break
             case ConfigurationItemType.STRING: output = 'String'; break
+            case ConfigurationItemType.STRING_ARRAY: output = 'String[]'; break
             case ConfigurationItemType.STRING_MAP: output = 'Map<String,String>'; break
             default: output = 'Object'; break
         }
@@ -159,6 +170,7 @@ class ConfigurationItem {
         private String baseName
         private ConfigurationItemType type
         private def defaultValue
+        private Boolean confidential
         private String displayText
         private String helpText
         private List<String> yamlPath
@@ -190,6 +202,10 @@ class ConfigurationItem {
 
         Boolean getInternal() {
             this.internal
+        }
+
+        Boolean getConfidential() {
+            this.confidential
         }
 
         ConfigurationItemType getType() {
@@ -231,6 +247,11 @@ class ConfigurationItem {
 
         Builder displayText(String input) {
             displayText = input
+            this
+        }
+
+        Builder confidential(boolean input) {
+            confidential = input
             this
         }
 
