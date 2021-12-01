@@ -45,6 +45,7 @@ class ConfigurationWriterSpec extends Specification {
                      new ConfigurationItem.Builder()
                              .name('item2', ['test'])
                              .required(false)
+                             .confidential(true)
                              .helpText('HelpText item 2')
                              .type(ConfigurationItemType.STRING).build(),
                      new ConfigurationItem.Builder()
@@ -59,7 +60,14 @@ class ConfigurationWriterSpec extends Specification {
                              .internal(true)
                              .defaultValue('myInternal def')
                              .helpText('myInternal help')
-                             .type(ConfigurationItemType.GUARDED_STRING).build()
+                             .type(ConfigurationItemType.GUARDED_STRING).build(),
+                     new ConfigurationItem.Builder()
+                             .name('myInternal2', ['myInternal2'])
+                             .required(false)
+                             .internal(true)
+                             .defaultValue('myInternal2 def')
+                             .helpText('myInternal2 help')
+                             .type(ConfigurationItemType.STRING_ARRAY).build()
                     ] as Set<ConfigurationItem>
 
             ConfigurationWriter writer = new ConfigurationWriter(

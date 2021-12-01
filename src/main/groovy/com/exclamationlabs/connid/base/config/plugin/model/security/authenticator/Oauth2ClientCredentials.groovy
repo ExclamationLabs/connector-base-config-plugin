@@ -41,6 +41,7 @@ class Oauth2ClientCredentials extends ConfigurationGroup {
                  .displayText('OAuth2 Client Secret')
                  .helpText('OAuth2 Client Secret')
                  .required(true)
+                 .confidential(true)
                  .type(ConfigurationItemType.STRING).build(),
          new ConfigurationItem.Builder()
                  .name('scope', getYamlPath())

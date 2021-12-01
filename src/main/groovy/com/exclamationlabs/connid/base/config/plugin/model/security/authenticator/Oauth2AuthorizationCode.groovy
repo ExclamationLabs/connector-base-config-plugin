@@ -35,6 +35,7 @@ class Oauth2AuthorizationCode extends ConfigurationGroup {
                  .displayText('OAuth2 Authorization Code')
                  .helpText('Authorization code used for OAuth2 access')
                  .required(true)
+                 .confidential(true)
                  .type(ConfigurationItemType.STRING).build(),
          new ConfigurationItem.Builder()
                  .name('clientId', getYamlPath())
@@ -47,6 +48,7 @@ class Oauth2AuthorizationCode extends ConfigurationGroup {
                  .displayText('OAuth2 Client Secret')
                  .helpText('OAuth2 Client Secret')
                  .required(false)
+                 .confidential(true)
                  .type(ConfigurationItemType.STRING).build(),
          new ConfigurationItem.Builder()
                  .name('redirectUri', getYamlPath())

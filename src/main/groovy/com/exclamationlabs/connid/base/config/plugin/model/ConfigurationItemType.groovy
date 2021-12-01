@@ -19,6 +19,7 @@ enum ConfigurationItemType {
     BOOLEAN,
     GUARDED_STRING,
     STRING,
+    STRING_ARRAY,
     STRING_MAP
 
     static ConfigurationItemType parse(String text) throws IllegalArgumentException {

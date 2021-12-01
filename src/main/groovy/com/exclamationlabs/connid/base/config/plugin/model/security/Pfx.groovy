@@ -35,6 +35,7 @@ class Pfx extends ConfigurationGroup {
                  .displayText('PFX Password')
                  .helpText('Password value protecting the .pfx file')
                  .required(true)
+                 .confidential(true)
                  .type(ConfigurationItemType.STRING).build()
         ] as Set<ConfigurationItem>
     }
