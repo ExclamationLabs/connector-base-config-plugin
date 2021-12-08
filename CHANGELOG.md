@@ -2,6 +2,7 @@
 
 # Change Log
 
++ **2.0.7** - Add support for internal custom fields, improve security details for FIS (12/08/2021)
 + **2.0.6** - Add support for String array and confidential field for Paycom (12/01/2021)
 + **2.0.5** - Fix support for GuardedString in configuration - conditionally add import (11/19/2021)
 + **2.0.4** - Fix bug where custom optional items don't get processed (11/18/2021)

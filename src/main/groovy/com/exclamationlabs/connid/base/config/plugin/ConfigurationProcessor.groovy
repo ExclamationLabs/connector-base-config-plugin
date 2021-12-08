@@ -227,6 +227,11 @@ class ConfigurationProcessor {
                     itemHelpText = itemData['helpText']
                 }
 
+                def internalValue = false
+                if (itemData.containsKey('internal') && itemData['internal'] == true) {
+                    internalValue = true
+                }
+
                 def confidentalValue = false
                 if (itemData.containsKey('confidential') && itemData['confidential'] == true) {
                     confidentalValue = true
@@ -234,6 +239,7 @@ class ConfigurationProcessor {
 
                 ConfigurationItem itemToAdd = new ConfigurationItem.Builder().name(item.key)
                     .defaultValue(itemDefaultValue).required(requiredItems).
+                        internal(internalValue).
                         confidential(confidentalValue).
                         displayText(itemDisplayText).helpText(itemHelpText).
                         validations(validations).type(itemType).build()

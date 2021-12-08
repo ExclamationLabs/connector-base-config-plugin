@@ -54,6 +54,7 @@ class Oauth2RefreshToken extends ConfigurationGroup {
                  .name('oauth2Information', getYamlPath())
                  .internal(true)
                  .required(false)
+                 .confidential(true)
                  .type(ConfigurationItemType.STRING_MAP).build()
         ] as Set<ConfigurationItem>
     }

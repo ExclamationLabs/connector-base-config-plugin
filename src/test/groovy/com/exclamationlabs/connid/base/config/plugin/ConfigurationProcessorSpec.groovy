@@ -183,6 +183,7 @@ custom:
         'test display' == singleItem.getDisplayText()
         'test help' == singleItem.getHelpText()
         singleItem.getConfidential()
+        !singleItem.getInternal()
     }
 
     def 'happyPath single custom optional item'() {
@@ -225,6 +226,40 @@ custom:
         'test display' == singleItem.getDisplayText()
         'test help' == singleItem.getHelpText()
 
+    }
+
+    def 'happyPath single custom internal item'() {
+        given:
+        def happyData = """
+---
+name: 'myconn'
+configurationClass:
+  name: 'TestMeConfiguration'
+  package: 'com.exclamationlabs.connid.base.testme.configuration'
+custom:
+  items:
+    required:
+      mine1:
+        type: string_map
+        internal: true
+"""
+
+        ConfigurationProcessor processor = setupProcessor(happyData)
+
+        when:
+        processor.execute()
+
+        then:
+        1 == 1
+        'myconn' == processor.name
+        'com.exclamationlabs.connid.base.testme.configuration' == processor.outputPackage
+        'TestMeConfiguration' == processor.outputClassName
+        processor.configurationItems
+        1 == processor.configurationItems.size()
+
+        def singleItem = processor.configurationItems.getAt(0)
+        ConfigurationItemType.STRING_MAP == singleItem.getType()
+        singleItem.getInternal()
     }
 
     def 'missing name'() {

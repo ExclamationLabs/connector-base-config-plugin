@@ -29,6 +29,7 @@ class DirectAccessToken extends ConfigurationGroup {
             .displayText('Token')
             .helpText('Fixed token value providing access to the connector')
             .required(true)
+            .confidential(true)
             .type(ConfigurationItemType.STRING).build()
         ] as Set<ConfigurationItem>
     }
