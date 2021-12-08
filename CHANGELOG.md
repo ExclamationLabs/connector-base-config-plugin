@@ -2,6 +2,7 @@
 
 # Change Log
 
++ **2.0.8** - Bug fix - all internal items should not have ConfigurationProperty annotation (12/08/2021)
 + **2.0.7** - Add support for internal custom fields, improve security details for FIS (12/08/2021)
 + **2.0.6** - Add support for String array and confidential field for Paycom (12/01/2021)
 + **2.0.5** - Fix support for GuardedString in configuration - conditionally add import (11/19/2021)

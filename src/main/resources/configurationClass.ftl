@@ -100,11 +100,13 @@ public class ${className} implements ConnectorConfiguration {
     }
 
 <#list items as item>
+    <#if !item.internal>
     @ConfigurationProperty(
-        displayMessageKey = "${item.getDisplayText()}",
-        helpMessageKey = "${item.getHelpText()}",
-        confidential = ${item.getConfidentialString()},
-        required = ${item.getRequiredString()})
+    displayMessageKey = "${item.getDisplayText()}",
+    helpMessageKey = "${item.getHelpText()}",
+    confidential = ${item.getConfidentialString()},
+    required = ${item.getRequiredString()})
+    </#if>
     public ${item.getJavaType()} get${item.getNameUpperCaseFirst()}() {
         return this.${item.name};
     }
