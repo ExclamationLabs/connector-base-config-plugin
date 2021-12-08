@@ -35,6 +35,7 @@ class Oauth2ClientCredentials extends ConfigurationGroup {
                  .displayText('OAuth2 Client Id')
                  .helpText('OAuth2 Client Id')
                  .required(true)
+                 .confidential(true)
                  .type(ConfigurationItemType.STRING).build(),
          new ConfigurationItem.Builder()
                  .name('clientSecret', getYamlPath())
@@ -42,7 +43,7 @@ class Oauth2ClientCredentials extends ConfigurationGroup {
                  .helpText('OAuth2 Client Secret')
                  .required(true)
                  .confidential(true)
-                 .type(ConfigurationItemType.STRING).build(),
+                 .type(ConfigurationItemType.GUARDED_STRING).build(),
          new ConfigurationItem.Builder()
                  .name('scope', getYamlPath())
                  .displayText('OAuth2 Scope')
@@ -53,6 +54,7 @@ class Oauth2ClientCredentials extends ConfigurationGroup {
                  .name('oauth2Information', getYamlPath())
                  .required(false)
                  .internal(true)
+                 .confidential(true)
                  .type(ConfigurationItemType.STRING_MAP).build()
         ] as Set<ConfigurationItem>
     }

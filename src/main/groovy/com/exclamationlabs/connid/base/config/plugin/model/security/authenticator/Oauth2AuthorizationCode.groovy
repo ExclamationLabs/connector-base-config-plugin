@@ -60,6 +60,7 @@ class Oauth2AuthorizationCode extends ConfigurationGroup {
                  .name('oauth2Information', getYamlPath())
                  .required(false)
                  .internal(true)
+                 .confidential(true)
                  .type(ConfigurationItemType.STRING_MAP).build()
         ] as Set<ConfigurationItem>
     }
