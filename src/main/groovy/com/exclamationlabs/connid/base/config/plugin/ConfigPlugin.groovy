@@ -25,8 +25,9 @@ class ConfigPlugin implements Plugin<Project> {
     void apply(Project project) {
         project.task('generateConfiguration') {
             doLast {
+                println 'Project root directory in use is: ' + project.getRootDir()
                 println 'Starting generateConfiguration task'
-                File filePath = new File(FILE_NAME)
+                File filePath = new File(project.getRootDir(), FILE_NAME)
                 if (!filePath.exists()) {
                     println 'Skipping configuration processing - file ' +
                             filePath.getAbsolutePath() + ' not found'
@@ -41,7 +42,7 @@ class ConfigPlugin implements Plugin<Project> {
                     }
                     println 'Processing of YAML complete.  Starting writing new class'
                     ConfigurationWriter writer =
-                            new ConfigurationWriter(new File(OUTPUT_FOLDER), processor)
+                            new ConfigurationWriter(new File(project.getRootDir(), OUTPUT_FOLDER), processor)
                     writer.execute()
                 }
             }
