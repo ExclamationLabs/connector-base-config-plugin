@@ -160,8 +160,8 @@ custom:
         validations:
           - '@Min(1)'
           - '@Max(10)'
-        displayText: 'test display'
-        helpText: 'test help'
+        display: 'test display'
+        help: 'test help'
 """
 
         ConfigurationProcessor processor = setupProcessor(happyData)
@@ -203,8 +203,8 @@ custom:
         validations:
           - '@Min(1)'
           - '@Max(10)'
-        displayText: 'test display'
-        helpText: 'test help'
+        display: 'test display'
+        help: 'test help'
 """
 
         ConfigurationProcessor processor = setupProcessor(happyData)
