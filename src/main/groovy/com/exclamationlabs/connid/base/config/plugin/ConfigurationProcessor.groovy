@@ -218,13 +218,13 @@ class ConfigurationProcessor {
                 }
 
                 def itemDisplayText = null
-                if (itemData.containsKey('displayText') && itemData['displayText'] != null) {
-                    itemDisplayText = itemData['displayText']
+                if (itemData.containsKey('display') && itemData['display'] != null) {
+                    itemDisplayText = itemData['display']
                 }
 
                 def itemHelpText = null
-                if (itemData.containsKey('helpText') && itemData['helpText'] != null) {
-                    itemHelpText = itemData['helpText']
+                if (itemData.containsKey('help') && itemData['help'] != null) {
+                    itemHelpText = itemData['help']
                 }
 
                 def internalValue = false
