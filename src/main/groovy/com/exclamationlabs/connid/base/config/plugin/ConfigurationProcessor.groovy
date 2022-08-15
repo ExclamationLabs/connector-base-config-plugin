@@ -12,6 +12,7 @@
 */
 package com.exclamationlabs.connid.base.config.plugin
 
+import com.exclamationlabs.connid.base.config.plugin.model.BehaviorType
 import com.exclamationlabs.connid.base.config.plugin.model.ConfigurationGroup
 import com.exclamationlabs.connid.base.config.plugin.model.ConfigurationItem
 import com.exclamationlabs.connid.base.config.plugin.model.ConfigurationItemType
@@ -32,6 +33,7 @@ import com.exclamationlabs.connid.base.config.plugin.model.security.authenticato
 import com.exclamationlabs.connid.base.config.plugin.model.security.authenticator.Oauth2Password
 import com.exclamationlabs.connid.base.config.plugin.model.security.authenticator.Oauth2RefreshToken
 import org.yaml.snakeyaml.Yaml
+import java.util.logging.Logger
 
 import javax.lang.model.SourceVersion
 
@@ -41,10 +43,14 @@ class ConfigurationProcessor {
 
     private InputStream yamlSource
 
+    private Logger logger = Logger.getLogger(ConfigurationProcessor.name)
+
     private String name
     private String outputPackage
     private String outputClassName
     private Set<ConfigurationItem> configurationItems = new HashSet<>()
+
+    Set<BehaviorType> behaviors
 
     ConfigurationProcessor(InputStream input) {
         yamlSource = input
@@ -76,6 +82,7 @@ class ConfigurationProcessor {
 
         parseName(dataMap)
         parseOutputClassInformation(dataMap)
+        behaviors = parseBehaviors(dataMap)
         parseConfigurationGroups(dataMap, null)
         parseCustomItems(dataMap, false)
         parseCustomItems(dataMap, true)
@@ -138,6 +145,42 @@ class ConfigurationProcessor {
                     '` is not a valid output Java package name')
         }
         outputPackage = packageName.trim()
+    }
+
+    private def parseBehaviors(Map<String, Object> dataMap) throws IllegalArgumentException {
+        def behaviors = []
+        def classDataMap = dataMap['behavior']
+
+        if (classDataMap == null) {
+            return behaviors
+        }
+
+        if (!(classDataMap instanceof Map)) {
+            throw new IllegalArgumentException('`behavior` not a valid map in structure yml')
+        }
+
+        classDataMap.each {
+            entry ->
+            def capBehaviorName = entry.getKey().toString().capitalize()
+            BehaviorType behaviorType = null
+            try {
+                behaviorType = BehaviorType.valueOf(capBehaviorName)
+            } catch (IllegalArgumentException ille) {
+                logger.fine('Unrecognized behavior name: ' + ille.getMessage())
+            }
+            if (behaviorType != null) {
+
+                if (!(entry.getValue() instanceof Boolean)) {
+                    throw new IllegalArgumentException('`' + capBehaviorName + '` does not have a valid Boolean value in structure yml.' +
+                            ' Parsed value was: ' + entry.getValue().toString())
+                }
+
+                if (entry.getValue() === true) {
+                    behaviors.add(behaviorType)
+                }
+            }
+        }
+        behaviors
     }
 
     private def parseConfigurationGroups(Map<String, Object> dataMap, List<String> parentPath) {
@@ -304,8 +347,11 @@ class ConfigurationProcessor {
                     first = false
                 }
         }
+        for (BehaviorType behavior : behaviors) {
+            output += ((!first) ? ', ' : '') + behavior.name()
+            first = false
+        }
         return (output == '' ? null : output)
-
     }
 
     String getAllInternalItems() {
