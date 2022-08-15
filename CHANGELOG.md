@@ -1,6 +1,7 @@
 # connector-base-config-plugin
 
 # Change Log
++ **2.1.1** - Add behavior interfaces sub-package, implemented for FIN-9503 (08/15/2022)
 + **2.1** - Add behavior interfaces, implemented for FIN-9503 (08/12/2022)
 + **2.0.11** - Fix display/help text mapping bug, discovered for FIN-9063 (04/05/2022)
 + **2.0.10** - Add duplicateErrorReturnsId support FIN-8819 (02/02/2022)
