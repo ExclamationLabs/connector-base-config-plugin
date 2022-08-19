@@ -13,7 +13,6 @@
 
 package com.exclamationlabs.connid.base.config.plugin
 
-import com.exclamationlabs.connid.base.config.plugin.model.BehaviorType
 import com.exclamationlabs.connid.base.config.plugin.model.ConfigurationItem
 import com.exclamationlabs.connid.base.config.plugin.model.ConfigurationItemType
 import spock.lang.Specification
@@ -26,7 +25,6 @@ class ConfigurationWriterSpec extends Specification {
             ConfigurationProcessor simpleProcessor =
                     new ConfigurationProcessor()
             simpleProcessor.outputPackage = 'com.dummy.test'
-            simpleProcessor.behaviors = [BehaviorType.DeepGet, BehaviorType.Paginating]
             simpleProcessor.outputClassName = 'SimpleConfiguration'
             simpleProcessor.name = 'dummyTest'
             simpleProcessor.getConfigurationGroups().first().setEnabled(true)
