@@ -14,6 +14,8 @@ package com.exclamationlabs.connid.base.config.plugin.model
 
 class ConfigurationItem {
 
+    static final Integer DEFAULT_ORDER = 1000
+
     private Boolean required
     private Boolean internal
     private ConfigurationItemType type
@@ -23,6 +25,7 @@ class ConfigurationItem {
     private Boolean confidential
     private String displayText
     private String helpText
+    private Integer order;
     private List<String> yamlPath
     private List<String> validations
 
@@ -39,6 +42,7 @@ class ConfigurationItem {
         defaultValue = builderInput.getDefaultValue()
         displayText = builderInput.getDisplayText()
         helpText = builderInput.getHelpText()
+        order = builderInput.getOrder()
         validations = builderInput.getValidations()
     }
 
@@ -56,6 +60,14 @@ class ConfigurationItem {
 
     Boolean getRequired() {
         this.required
+    }
+
+    Integer getOrder() {
+        this.order
+    }
+
+    String getOrderString() {
+        '' + this.order
     }
 
     Boolean getInternal() {
@@ -173,6 +185,7 @@ class ConfigurationItem {
         private Boolean confidential
         private String displayText
         private String helpText
+        private Integer order
         private List<String> yamlPath
         private List<String> validations
 
@@ -224,6 +237,10 @@ class ConfigurationItem {
             this.validations
         }
 
+        Integer getOrder() {
+            this.order == null ? DEFAULT_ORDER : this.order
+        }
+
         Builder required(boolean input) {
             required = input
             this
@@ -262,6 +279,11 @@ class ConfigurationItem {
 
         Builder defaultValue(def input) {
             defaultValue = input
+            this
+        }
+
+        Builder order(Integer input) {
+            order = input
             this
         }
 

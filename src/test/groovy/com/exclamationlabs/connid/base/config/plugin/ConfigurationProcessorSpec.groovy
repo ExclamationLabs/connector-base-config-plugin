@@ -105,6 +105,7 @@ custom:
         default: 1.23
       mine4:
         type: string
+        order: 5
         default: 'hi'
     required:
       mine5:
@@ -113,6 +114,7 @@ custom:
         confidential: true
       mine6:
         type: string # subset of string
+        order: 10
         default: 'http://www.google.com'
       mine7:
         type: guarded_string

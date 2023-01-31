@@ -29,11 +29,13 @@ class ConfigurationWriterSpec extends Specification {
             simpleProcessor.name = 'dummyTest'
             simpleProcessor.getConfigurationGroups().first().setEnabled(true)
             simpleProcessor.getConfigurationGroups().last().setEnabled(true)
+
             simpleProcessor.configurationItems =
                     [new ConfigurationItem.Builder()
                              .name('diablo')
                              .displayText('Diablo Custom 1')
                              .required(true)
+                             .order(1)
                              .type(ConfigurationItemType.STRING).build(),
                      new ConfigurationItem.Builder()
                              .name('item1', ['test'])
