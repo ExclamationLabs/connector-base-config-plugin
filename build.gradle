@@ -12,13 +12,13 @@ apply plugin: 'java'
 apply plugin: 'groovy'
 apply plugin: 'java-library'
 
-def build_version = System.getenv('BUILD_NUMBER') == null ? "${local_build_version}" : System.getenv('BUILD_NUMBER')
+def build_version = System.getenv('BUILD_NUMBER') == null ? System.currentTimeMillis() : System.getenv('BUILD_NUMBER')
 project.version="${software_version}-${build_version}"
 
 group = 'com.exclamationlabs.connid'
 
 dependencies {
-    api 'org.yaml:snakeyaml:1.29'
+    api 'org.yaml:snakeyaml:1.33'
     api 'org.freemarker:freemarker:2.3.31'
 
     testImplementation 'org.spockframework:spock-core:2.0-groovy-3.0'
@@ -70,7 +70,7 @@ publishing {
                 licenses {
                     license {
                         name = "The Apache License, Version 2.0"
-                        url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                        url = "https://www.apache.org/licenses/LICENSE-2.0.txt"
                     }
                 }
                 scm {

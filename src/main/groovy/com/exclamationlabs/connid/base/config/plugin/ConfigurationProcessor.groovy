@@ -237,12 +237,17 @@ class ConfigurationProcessor {
                     confidentalValue = true
                 }
 
+                def order = ConfigurationItem.DEFAULT_ORDER
+                if (itemData.containsKey('order') && itemData['order'] != null) {
+                    order = itemData['order']
+                }
+
                 ConfigurationItem itemToAdd = new ConfigurationItem.Builder().name(item.key)
                     .defaultValue(itemDefaultValue).required(requiredItems).
                         internal(internalValue).
                         confidential(confidentalValue).
                         displayText(itemDisplayText).helpText(itemHelpText).
-                        validations(validations).type(itemType).build()
+                        order(order).validations(validations).type(itemType).build()
                 configurationItems.add(itemToAdd)
         }
 

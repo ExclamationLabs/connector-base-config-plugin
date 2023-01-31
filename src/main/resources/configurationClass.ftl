@@ -104,6 +104,7 @@ public class ${className} implements ConnectorConfiguration {
     @ConfigurationProperty(
     displayMessageKey = "${item.getDisplayText()}",
     helpMessageKey = "${item.getHelpText()}",
+    order = ${item.getOrderString()},
     confidential = ${item.getConfidentialString()},
     required = ${item.getRequiredString()})
     </#if>
