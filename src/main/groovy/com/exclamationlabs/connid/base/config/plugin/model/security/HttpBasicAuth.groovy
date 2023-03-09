@@ -26,6 +26,7 @@ class HttpBasicAuth extends ConfigurationGroup {
     Set<ConfigurationItem> getConfigurationItems() {
         [ new ConfigurationItem.Builder()
             .name('basicUsername', getYamlPath())
+            .order(2001)
             .displayText('HTTP Basic Auth Username')
             .helpText('HTTP Basic Authentication Username value')
             .required(true)
@@ -33,6 +34,7 @@ class HttpBasicAuth extends ConfigurationGroup {
             .type(ConfigurationItemType.STRING).build(),
           new ConfigurationItem.Builder()
               .name('basicPassword', getYamlPath())
+              .order(2002)
               .required(true)
               .displayText('HTTP Basic Auth Password')
               .helpText('HTTP Basic Authentication Password value')

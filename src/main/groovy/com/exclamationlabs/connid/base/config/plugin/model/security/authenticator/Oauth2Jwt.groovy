@@ -26,12 +26,14 @@ class Oauth2Jwt extends ConfigurationGroup {
     Set<ConfigurationItem> getConfigurationItems() {
         [new ConfigurationItem.Builder()
                  .name('tokenUrl', getYamlPath())
+                 .order(3001)
                  .displayText('OAuth2 Token URL')
                  .helpText('URL used to obtain OAuth2 token')
                  .required(true)
                  .type(ConfigurationItemType.STRING).build(),
          new ConfigurationItem.Builder()
                  .name('oauth2Information', getYamlPath())
+                 .order(3002)
                  .internal(true)
                  .required(false)
                  .confidential(true)

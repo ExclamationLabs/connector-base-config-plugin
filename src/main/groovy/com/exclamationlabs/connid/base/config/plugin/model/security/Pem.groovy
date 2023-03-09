@@ -26,6 +26,7 @@ class Pem extends ConfigurationGroup {
     Set<ConfigurationItem> getConfigurationItems() {
         [new ConfigurationItem.Builder()
                  .name('pemFile', getYamlPath())
+                 .order(2201)
                  .displayText('PEM File')
                  .helpText('Full file path to .pem file')
                  .required(true)

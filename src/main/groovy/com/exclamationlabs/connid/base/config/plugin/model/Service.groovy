@@ -23,6 +23,7 @@ class Service extends ConfigurationGroup {
         [
             new ConfigurationItem.Builder()
                     .name('serviceUrl', getYamlPath())
+                    .order(1201)
                     .required(true)
                     .displayText('Service URL')
                     .helpText('The base service URL for the API this connector' +
@@ -30,6 +31,7 @@ class Service extends ConfigurationGroup {
                     .type(ConfigurationItemType.STRING).build(),
             new ConfigurationItem.Builder()
                     .name('duplicateErrorReturnsId', getYamlPath())
+                    .order(1202)
                     .required(false)
                     .defaultValue('false')
                     .displayText('Duplicate Error Returns Id')

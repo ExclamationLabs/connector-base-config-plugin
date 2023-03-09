@@ -26,18 +26,21 @@ class JwtRs256 extends ConfigurationGroup {
     Set<ConfigurationItem> getConfigurationItems() {
         [new ConfigurationItem.Builder()
                  .name('issuer', getYamlPath())
+                 .order(2701)
                  .displayText('JWT Issuer')
                  .helpText('Issuer for JWT RS256 Authentication')
                  .required(true)
                  .type(ConfigurationItemType.STRING).build(),
          new ConfigurationItem.Builder()
                  .name('subject', getYamlPath())
+                 .order(2702)
                  .displayText('JWT Subject')
                  .helpText('Subject for JWT RS256 Authentication')
                  .required(false)
                  .type(ConfigurationItemType.STRING).build(),
          new ConfigurationItem.Builder()
                  .name('expirationPeriod', getYamlPath())
+                 .order(2703)
                  .displayText('JWT Expiration')
                  .helpText('Expiration period, in milliseconds, ' +
                  'of JWT RS256 Authentication')
@@ -45,12 +48,14 @@ class JwtRs256 extends ConfigurationGroup {
                  .type(ConfigurationItemType.LONG).build(),
          new ConfigurationItem.Builder()
                  .name('audience', getYamlPath())
+                 .order(2704)
                  .displayText('JWT Audience')
                  .helpText('Audience for JWT RS256 Authentication')
                  .required(false)
                  .type(ConfigurationItemType.STRING).build(),
          new ConfigurationItem.Builder()
                  .name('useIssuedAt', getYamlPath())
+                 .order(2705)
                  .displayText('JWT Use Issued At')
                  .helpText('Whether or not to include `Issued At` information ' +
                  'during authentication attempt.')

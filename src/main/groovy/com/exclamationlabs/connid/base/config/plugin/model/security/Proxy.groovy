@@ -26,18 +26,21 @@ class Proxy extends ConfigurationGroup {
     Set<ConfigurationItem> getConfigurationItems() {
         [new ConfigurationItem.Builder()
                  .name('proxyHost', getYamlPath())
+                 .order(2401)
                  .displayText('Proxy Host')
                  .helpText('Domain or IP Address of Proxy Server')
                  .required(true)
                  .type(ConfigurationItemType.STRING).build(),
          new ConfigurationItem.Builder()
                  .name('proxyPort', getYamlPath())
+                 .order(2402)
                  .displayText('Proxy Port')
                  .helpText('Port Number of Proxy Server')
                  .required(true)
                  .type(ConfigurationItemType.INT).build(),
          new ConfigurationItem.Builder()
                  .name('proxyType', getYamlPath())
+                 .order(2403)
                  .displayText('Proxy Type')
                  .helpText('Type of Proxy Server - either `socks5` or `http`')
                  .required(true)

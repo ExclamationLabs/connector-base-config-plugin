@@ -1,8 +1,9 @@
 # connector-base-config-plugin
 
 # Change Log
-+ **3.0.1** - Migrate to GAR; get Jenkins build working  - FIN-9902 (01/31/2022)
-+ **3.0** - Migrate to GAR; add order to ConfigurationProperty; update depedencies  - FIN-9902 (01/31/2022)
++ **3.0.2** - Added order numbers for base-supplied configuration values (03/08/2023)
++ **3.0.1** - Migrate to GAR; get Jenkins build working  - FIN-9902 (01/31/2023)
++ **3.0** - Migrate to GAR; add order to ConfigurationProperty; update depedencies  - FIN-9902 (01/31/2023)
 + **2.1.3** - Migrate to Google Archive Repository - FIN-9902 (11/28/2022)
 + **2.1.2** - Revert behavior interfaces, for now, due to backward compatibility concerns (08/19/2022)
 + **2.1.1** - Add behavior interfaces sub-package, implemented for FIN-9503 (08/15/2022)
