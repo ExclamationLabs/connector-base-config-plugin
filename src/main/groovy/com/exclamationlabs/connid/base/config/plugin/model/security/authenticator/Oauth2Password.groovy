@@ -40,12 +40,14 @@ class Oauth2Password extends ConfigurationGroup {
                  .type(ConfigurationItemType.STRING).build(),
          new ConfigurationItem.Builder()
                  .name('oauth2Username', getYamlPath())
+                 .order(3101)
                  .displayText('OAuth2 Username')
                  .helpText('Account username pertained to OAuth2 access')
                  .required(true)
                  .type(ConfigurationItemType.STRING).build(),
          new ConfigurationItem.Builder()
                  .name('oauth2Password', getYamlPath())
+                 .order(3102)
                  .displayText('OAuth2 Password')
                  .helpText('Account password pertained to OAuth2 access')
                  .required(true)
@@ -53,6 +55,7 @@ class Oauth2Password extends ConfigurationGroup {
                  .type(ConfigurationItemType.STRING).build(),
          new ConfigurationItem.Builder()
                  .name('oauth2Information', getYamlPath())
+                 .order(3103)
                  .required(false)
                  .internal(true)
                  .confidential(true)

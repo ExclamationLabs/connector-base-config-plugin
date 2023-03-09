@@ -45,6 +45,7 @@ class Oauth2RefreshToken extends ConfigurationGroup {
                  .type(ConfigurationItemType.STRING).build(),
          new ConfigurationItem.Builder()
                  .name('clientSecret', getYamlPath())
+                 .order(3201)
                  .displayText('OAuth2 Client Secret')
                  .helpText('OAuth2 Client Secret')
                  .required(false)
@@ -52,6 +53,7 @@ class Oauth2RefreshToken extends ConfigurationGroup {
                  .type(ConfigurationItemType.STRING).build(),
          new ConfigurationItem.Builder()
                  .name('oauth2Information', getYamlPath())
+                 .order(3202)
                  .internal(true)
                  .required(false)
                  .confidential(true)

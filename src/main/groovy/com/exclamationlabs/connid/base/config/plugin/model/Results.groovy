@@ -23,6 +23,7 @@ class Results extends ConfigurationGroup {
         [
             new ConfigurationItem.Builder()
                     .name('deepGet', getYamlPath())
+                    .order(1101)
                     .displayText('Deep Get Enabled')
                     .helpText('If true, an individual getOne request for each item in' +
                             ' any getAll request will be performed.')
@@ -30,6 +31,7 @@ class Results extends ConfigurationGroup {
                     .type(ConfigurationItemType.BOOLEAN).build(),
             new ConfigurationItem.Builder()
                     .name('deepImport', getYamlPath())
+                    .order(1102)
                     .displayText('Deep Import Enabled')
                     .helpText('If true, an individual getOne request for each item in' +
                             ' Import getAll requests will be performed.')
@@ -37,6 +39,7 @@ class Results extends ConfigurationGroup {
                     .type(ConfigurationItemType.BOOLEAN).build(),
             new ConfigurationItem.Builder()
                     .name('importBatchSize', getYamlPath())
+                    .order(1103)
                     .displayText('Import Batch Size')
                     .helpText('If supplied, import operations will be invoked using ' +
                             'this given batch size, so that API`s that support paging ' +
@@ -46,6 +49,7 @@ class Results extends ConfigurationGroup {
                     .type(ConfigurationItemType.INT).build(),
             new ConfigurationItem.Builder()
                     .name('pagination', getYamlPath())
+                    .order(1104)
                     .displayText('Pagination Enabled')
                     .helpText('Set to true if this connector (and its underlying API' +
                             ') supports pagination.')

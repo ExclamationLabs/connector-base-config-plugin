@@ -26,12 +26,14 @@ class JwtHs256 extends ConfigurationGroup {
     Set<ConfigurationItem> getConfigurationItems() {
         [new ConfigurationItem.Builder()
                  .name('issuer', getYamlPath())
+                 .order(2601)
                  .displayText('JWT Issuer')
                  .helpText('Issuer for JWT HS256 Authentication')
                  .required(true)
                  .type(ConfigurationItemType.STRING).build(),
          new ConfigurationItem.Builder()
                  .name('secret', getYamlPath())
+                 .order(2602)
                  .displayText('JWT Secret')
                  .helpText('Secret for JWT HS256 Authentication')
                  .required(true)
@@ -39,6 +41,7 @@ class JwtHs256 extends ConfigurationGroup {
                  .type(ConfigurationItemType.STRING).build(),
          new ConfigurationItem.Builder()
                  .name('expirationPeriod', getYamlPath())
+                 .order(2603)
                  .displayText('JWT Expiration')
                  .helpText('Expiration period, in milliseconds' +
                          ', for JWT HS256 Authentication')
