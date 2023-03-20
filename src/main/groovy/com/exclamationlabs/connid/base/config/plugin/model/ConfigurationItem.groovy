@@ -66,10 +66,6 @@ class ConfigurationItem {
         this.order
     }
 
-    String getOrderString() {
-        '' + this.order
-    }
-
     Boolean getInternal() {
         this.internal == null ? false : this.internal
     }

@@ -68,5 +68,6 @@ class ConfigurationWriter {
         freemarkerConfiguration.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER)
         freemarkerConfiguration.setLogTemplateExceptions(false)
         freemarkerConfiguration.setWrapUncheckedExceptions(true)
+        freemarkerConfiguration.setNumberFormat("computer")
     }
 }
