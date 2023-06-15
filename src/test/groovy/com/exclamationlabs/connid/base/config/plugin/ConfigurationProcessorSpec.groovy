@@ -141,7 +141,7 @@ custom:
             'com.exclamationlabs.connid.base.testme.configuration' == processor.outputPackage
             'TestMeConfiguration' == processor.outputClassName
             processor.configurationItems
-            41 == processor.configurationItems.size()
+            42 == processor.configurationItems.size()
     }
 
     def 'happyPath single custom required item'() {
