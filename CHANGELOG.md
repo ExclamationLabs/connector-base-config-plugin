@@ -1,6 +1,7 @@
 # connector-base-config-plugin
 
 # Change Log
++ **3.0.4** - FIN-10111 - add key password for PFX (04/26/2023)
 + **3.0.3** - FIN-10455 - fix long type generation (03/20/2023)
 + **3.0.2** - Added order numbers for base-supplied configuration values (03/08/2023)
 + **3.0.1** - Migrate to GAR; get Jenkins build working  - FIN-9902 (01/31/2023)
