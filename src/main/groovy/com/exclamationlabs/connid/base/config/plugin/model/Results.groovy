@@ -45,7 +45,8 @@ class Results extends ConfigurationGroup {
                             'this given batch size, so that API`s that support paging ' +
                             'can import all records using a particular batch size (instead ' +
                             ' of all at once.')
-                    .required(false)
+                    .required(true)
+                    .defaultValue(50)
                     .type(ConfigurationItemType.INT).build(),
             new ConfigurationItem.Builder()
                     .name('pagination', getYamlPath())
