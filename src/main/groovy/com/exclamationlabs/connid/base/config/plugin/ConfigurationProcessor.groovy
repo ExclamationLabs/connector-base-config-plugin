@@ -21,6 +21,7 @@ import com.exclamationlabs.connid.base.config.plugin.model.Service
 import com.exclamationlabs.connid.base.config.plugin.model.security.HttpBasicAuth
 import com.exclamationlabs.connid.base.config.plugin.model.security.Jks
 import com.exclamationlabs.connid.base.config.plugin.model.security.Pem
+import com.exclamationlabs.connid.base.config.plugin.model.security.PemPrivateKey
 import com.exclamationlabs.connid.base.config.plugin.model.security.Pfx
 import com.exclamationlabs.connid.base.config.plugin.model.security.Proxy
 import com.exclamationlabs.connid.base.config.plugin.model.security.authenticator.DirectAccessToken
@@ -57,6 +58,7 @@ class ConfigurationProcessor {
                         new Proxy(),
                         new Jks(),
                         new Pem(),
+                        new PemPrivateKey(),
                         new Pfx(),
                         new DirectAccessToken(),
                         new JwtHs256(),
