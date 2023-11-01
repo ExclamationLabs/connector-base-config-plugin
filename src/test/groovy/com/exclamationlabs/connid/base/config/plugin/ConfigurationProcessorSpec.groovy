@@ -18,6 +18,7 @@ import com.exclamationlabs.connid.base.config.plugin.model.Service
 import com.exclamationlabs.connid.base.config.plugin.model.security.HttpBasicAuth
 import com.exclamationlabs.connid.base.config.plugin.model.security.Jks
 import com.exclamationlabs.connid.base.config.plugin.model.security.Pem
+import com.exclamationlabs.connid.base.config.plugin.model.security.PemPrivateKey
 import com.exclamationlabs.connid.base.config.plugin.model.security.Pfx
 import com.exclamationlabs.connid.base.config.plugin.model.security.Proxy
 import com.exclamationlabs.connid.base.config.plugin.model.security.authenticator.DirectAccessToken
@@ -42,12 +43,13 @@ class ConfigurationProcessorSpec extends Specification {
 
         then:
             groups
-            16 == groups.size()
+            17 == groups.size()
             groups.contains(new Rest())
             groups.contains(new Service())
             groups.contains(new HttpBasicAuth())
             groups.contains(new Jks())
             groups.contains(new Pem())
+            groups.contains(new PemPrivateKey())
             groups.contains(new Pfx())
             groups.contains(new Proxy())
             groups.contains(new DirectAccessToken())

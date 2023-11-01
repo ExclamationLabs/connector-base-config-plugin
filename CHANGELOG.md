@@ -1,6 +1,7 @@
 # connector-base-config-plugin
 
 # Change Log
++ **3.0.6** - FIN-11103 - ADP new auth support (11/01/2023)
 + **3.0.5** - FIN-10678 - pagination/filtering support (07/26/2023)
 + **3.0.4** - FIN-10111 - add key password for PFX (04/26/2023)
 + **3.0.3** - FIN-10455 - fix long type generation (03/20/2023)
