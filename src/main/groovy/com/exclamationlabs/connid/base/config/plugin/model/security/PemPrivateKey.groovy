@@ -45,6 +45,14 @@ class PemPrivateKey extends ConfigurationGroup {
                  .helpText('Password for the private key')
                  .required(true)
                  .type(ConfigurationItemType.GUARDED_STRING).build()
+         ,
+         new ConfigurationItem.Builder()
+                 .name('keyPassword', getYamlPath())
+                 .order(2504)
+                 .displayText('KeyStore Password')
+                 .helpText('KeyStorePassword for the generated KeyStore')
+                 .required(true)
+                 .type(ConfigurationItemType.GUARDED_STRING).build()
         ] as Set<ConfigurationItem>
     }
 
