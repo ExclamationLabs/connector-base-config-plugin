@@ -28,16 +28,16 @@ class PemPrivateKey extends ConfigurationGroup {
                  .name('pemFile', getYamlPath())
                  .order(2501)
                  .displayText('PEM File')
-                 .helpText('Full file path to .pem file')
+                 .helpText('Base 64 Encoded Representation of .pem file')
                  .required(true)
-                 .type(ConfigurationItemType.STRING).build(),
+                 .type(ConfigurationItemType.GUARDED_STRING).build(),
          new ConfigurationItem.Builder()
                  .name('privateKeyFile', getYamlPath())
                  .order(2502)
                  .displayText('Private Key File')
-                 .helpText('Full file path to .key private key file')
+                 .helpText('Base 64 Encoded Representation of .key private key file')
                  .required(true)
-                 .type(ConfigurationItemType.STRING).build(),
+                 .type(ConfigurationItemType.GUARDED_STRING).build(),
          new ConfigurationItem.Builder()
                  .name('keyPassword', getYamlPath())
                  .order(2503)
