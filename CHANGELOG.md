@@ -1,6 +1,7 @@
 # connector-base-config-plugin
 
 # Change Log
++ **3.0.8** - FIN-11103 - ADP new auth support, include KeyStore password (11/02/2023)
 + **3.0.7** - FIN-11103 - ADP new auth support, guard .pem and private key (11/02/2023)
 + **3.0.6** - FIN-11103 - ADP new auth support (11/01/2023)
 + **3.0.5** - FIN-10678 - pagination/filtering support (07/26/2023)
