@@ -51,7 +51,7 @@ class PemPrivateKey extends ConfigurationGroup {
                  .order(2504)
                  .displayText('KeyStore Password')
                  .helpText('KeyStorePassword for the generated KeyStore')
-                 .required(true)
+                 .required(false)
                  .type(ConfigurationItemType.GUARDED_STRING).build()
         ] as Set<ConfigurationItem>
     }
