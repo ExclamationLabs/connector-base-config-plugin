@@ -43,7 +43,7 @@ class PemPrivateKey extends ConfigurationGroup {
                  .order(2503)
                  .displayText('Private Key Password')
                  .helpText('Password for the private key')
-                 .required(true)
+                 .required(false)
                  .type(ConfigurationItemType.GUARDED_STRING).build()
          ,
          new ConfigurationItem.Builder()
