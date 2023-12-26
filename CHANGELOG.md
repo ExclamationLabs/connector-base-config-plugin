@@ -1,6 +1,7 @@
 # connector-base-config-plugin
 
 # Change Log
++ **3.0.12** - FIN-11111 - resolve snakeyml vulnerability (12/26/2023)
 + **3.0.11** - FIN-11103 - optional key password (11/06/2023)
 + **3.0.10** - FIN-11103 - ADP new auth support, include KeyStore password (11/02/2023)
 + **3.0.7** - FIN-11103 - ADP new auth support, guard .pem and private key (11/02/2023)
