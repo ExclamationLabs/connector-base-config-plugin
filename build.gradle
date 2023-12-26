@@ -18,7 +18,7 @@ project.version="${software_version}-${build_version}"
 group = 'com.exclamationlabs.connid'
 
 dependencies {
-    api 'org.yaml:snakeyaml:1.33'
+    api 'org.yaml:snakeyaml:2.2'
     api 'org.freemarker:freemarker:2.3.31'
 
     testImplementation 'org.spockframework:spock-core:2.0-groovy-3.0'
