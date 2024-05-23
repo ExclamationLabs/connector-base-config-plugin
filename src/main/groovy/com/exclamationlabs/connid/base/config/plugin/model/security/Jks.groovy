@@ -38,7 +38,7 @@ class Jks extends ConfigurationGroup {
                  .helpText('Password value protecting the .jks file')
                  .required(true)
                  .confidential(true)
-                 .type(ConfigurationItemType.STRING).build(),
+                 .type(ConfigurationItemType.GUARDED_STRING).build(),
          new ConfigurationItem.Builder()
                  .name('jksAlias', getYamlPath())
                  .order(2103)

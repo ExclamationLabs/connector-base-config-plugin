@@ -37,7 +37,7 @@ class Oauth2Password extends ConfigurationGroup {
                          'encoded version of some user credential)')
                  .required(true)
                  .confidential(true)
-                 .type(ConfigurationItemType.STRING).build(),
+                 .type(ConfigurationItemType.GUARDED_STRING).build(),
          new ConfigurationItem.Builder()
                  .name('oauth2Username', getYamlPath())
                  .order(3101)
@@ -52,7 +52,7 @@ class Oauth2Password extends ConfigurationGroup {
                  .helpText('Account password pertained to OAuth2 access')
                  .required(true)
                  .confidential(true)
-                 .type(ConfigurationItemType.STRING).build(),
+                 .type(ConfigurationItemType.GUARDED_STRING).build(),
          new ConfigurationItem.Builder()
                  .name('oauth2Information', getYamlPath())
                  .order(3103)

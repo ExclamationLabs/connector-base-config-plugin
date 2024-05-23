@@ -38,7 +38,7 @@ class JwtHs256 extends ConfigurationGroup {
                  .helpText('Secret for JWT HS256 Authentication')
                  .required(true)
                  .confidential(true)
-                 .type(ConfigurationItemType.STRING).build(),
+                 .type(ConfigurationItemType.GUARDED_STRING).build(),
          new ConfigurationItem.Builder()
                  .name('expirationPeriod', getYamlPath())
                  .order(2603)
