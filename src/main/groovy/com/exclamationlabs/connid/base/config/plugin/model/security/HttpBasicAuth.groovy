@@ -40,7 +40,7 @@ class HttpBasicAuth extends ConfigurationGroup {
               .helpText('HTTP Basic Authentication Password value')
               .validations(['@NotBlank'])
               .confidential(true)
-              .type(ConfigurationItemType.STRING).build()
+              .type(ConfigurationItemType.GUARDED_STRING).build()
         ] as Set<ConfigurationItem>
     }
 
