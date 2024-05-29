@@ -30,14 +30,14 @@ class JwtRs256 extends ConfigurationGroup {
                  .displayText('JWT Issuer')
                  .helpText('Issuer for JWT RS256 Authentication')
                  .required(true)
-                 .type(ConfigurationItemType.STRING).build(),
+                 .type(ConfigurationItemType.GUARDED_STRING).build(),
          new ConfigurationItem.Builder()
                  .name('subject', getYamlPath())
                  .order(2702)
                  .displayText('JWT Subject')
                  .helpText('Subject for JWT RS256 Authentication')
                  .required(false)
-                 .type(ConfigurationItemType.STRING).build(),
+                 .type(ConfigurationItemType.GUARDED_STRING).build(),
          new ConfigurationItem.Builder()
                  .name('expirationPeriod', getYamlPath())
                  .order(2703)

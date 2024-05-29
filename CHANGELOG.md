@@ -1,6 +1,7 @@
 # connector-base-config-plugin
 
 # Change Log
++ **3.1.1** - FIN-11820 - Secure RSA256 fields (05/29/2024)
 + **3.1** - FIN-492 - Make sure all auth password-type values are guarded string (05/23/2024)
 + **3.0.12** - FIN-11111 - resolve snakeyml vulnerability (12/26/2023)
 + **3.0.11** - FIN-11103 - optional key password (11/06/2023)
