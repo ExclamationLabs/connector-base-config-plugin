@@ -49,25 +49,27 @@ class ConfigurationProcessor {
 
     ConfigurationProcessor(InputStream input) {
         yamlSource = input
+        // Make sure the groups are put in Alphabetical order to pass code formatting tests
+        // All are prefixed with com.exclamationlabs.connid.base.connector.configuration.basetypes
         groups =
                 [
-                        new Rest(),
-                        new Results(),
-                        new Service(),
-                        new HttpBasicAuth(),
-                        new Proxy(),
-                        new Jks(),
-                        new Pem(),
-                        new PemPrivateKey(),
-                        new Pfx(),
-                        new DirectAccessToken(),
-                        new JwtHs256(),
-                        new JwtRs256(),
-                        new Oauth2AuthorizationCode(),
-                        new Oauth2ClientCredentials(),
-                        new Oauth2Jwt(),
-                        new Oauth2Password(),
-                        new Oauth2RefreshToken()
+                        new Rest(), // RestConfiguration
+                        new Results(), // ResultsConfiguration
+                        new Service(), // ServiceConfiguration
+                        new HttpBasicAuth(), // security.HttpBasicAuthConfiguration
+                        new Proxy(), // security.ProxyConfiguration
+                        new Jks(), // security.JksConfiguration
+                        new Pem(), // security.PemConfiguration
+                        new PemPrivateKey(), // security.PemPrivateKeyConfiguration
+                        new Pfx(), // security.PfxConfiguration
+                        new DirectAccessToken(), // security.authenticator.DirectAccessTokenConfiguration
+                        new JwtHs256(), // security.authenticator.JwtHs256Configuration
+                        new JwtRs256(), // security.authenticator.JwtRs256Configuration
+                        new Oauth2AuthorizationCode(), // security.authenticator.Oauth2AuthorizationCodeConfiguration
+                        new Oauth2ClientCredentials(), // security.authenticator.Oauth2ClientCredentialsConfiguration
+                        new Oauth2Jwt(), // security.authenticator.Oauth2JwtConfiguration
+                        new Oauth2Password(), // security.authenticator.Oauth2PasswordConfiguration
+                        new Oauth2RefreshToken() // security.authenticator.Oauth2RefreshTokenConfiguration
                 ] as Set<ConfigurationGroup>
     }
 
@@ -306,7 +308,7 @@ class ConfigurationProcessor {
         for (ConfigurationGroup item : groups) {
                 if (item.isEnabled()) {
                     int lastIndex = item.getConfigurationInterface().lastIndexOf('.')
-                    output += ((!first) ? ', ' : '') +
+                    output += ((!first) ? ', \n' : '') +
                             item.getConfigurationInterface().substring(lastIndex + 1)
                     first = false
                 }
