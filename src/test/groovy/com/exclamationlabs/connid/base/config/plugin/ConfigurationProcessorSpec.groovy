@@ -21,6 +21,7 @@ import com.exclamationlabs.connid.base.config.plugin.model.security.Pem
 import com.exclamationlabs.connid.base.config.plugin.model.security.PemPrivateKey
 import com.exclamationlabs.connid.base.config.plugin.model.security.Pfx
 import com.exclamationlabs.connid.base.config.plugin.model.security.Proxy
+import com.exclamationlabs.connid.base.config.plugin.model.security.KeyStore
 import com.exclamationlabs.connid.base.config.plugin.model.security.authenticator.DirectAccessToken
 import com.exclamationlabs.connid.base.config.plugin.model.security.authenticator.JwtHs256
 import com.exclamationlabs.connid.base.config.plugin.model.security.authenticator.JwtRs256
@@ -43,7 +44,7 @@ class ConfigurationProcessorSpec extends Specification {
 
         then:
             groups
-            17 == groups.size()
+            18 == groups.size()
             groups.contains(new Rest())
             groups.contains(new Service())
             groups.contains(new HttpBasicAuth())
@@ -52,6 +53,7 @@ class ConfigurationProcessorSpec extends Specification {
             groups.contains(new PemPrivateKey())
             groups.contains(new Pfx())
             groups.contains(new Proxy())
+            groups.contains(new KeyStore())
             groups.contains(new DirectAccessToken())
             groups.contains(new JwtHs256())
             groups.contains(new JwtRs256())
@@ -78,6 +80,7 @@ security:
   jks: true
   pem: true # pem private key loading - file
   pfx: true # pfx key store loading
+  keystore: true # keystore loading
   authenticator:
     directAccessToken: true # token
     jwtHs256: true # issuer, secret, expirationPeriod
@@ -143,7 +146,7 @@ custom:
             'com.exclamationlabs.connid.base.testme.configuration' == processor.outputPackage
             'TestMeConfiguration' == processor.outputClassName
             processor.configurationItems
-            42 == processor.configurationItems.size()
+            45 == processor.configurationItems.size()
     }
 
     def 'happyPath single custom required item'() {

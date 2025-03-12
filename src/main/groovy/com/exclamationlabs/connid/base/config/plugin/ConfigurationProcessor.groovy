@@ -24,6 +24,7 @@ import com.exclamationlabs.connid.base.config.plugin.model.security.Pem
 import com.exclamationlabs.connid.base.config.plugin.model.security.PemPrivateKey
 import com.exclamationlabs.connid.base.config.plugin.model.security.Pfx
 import com.exclamationlabs.connid.base.config.plugin.model.security.Proxy
+import com.exclamationlabs.connid.base.config.plugin.model.security.KeyStore
 import com.exclamationlabs.connid.base.config.plugin.model.security.authenticator.DirectAccessToken
 import com.exclamationlabs.connid.base.config.plugin.model.security.authenticator.JwtHs256
 import com.exclamationlabs.connid.base.config.plugin.model.security.authenticator.JwtRs256
@@ -62,6 +63,7 @@ class ConfigurationProcessor {
                         new Pem(), // security.PemConfiguration
                         new PemPrivateKey(), // security.PemPrivateKeyConfiguration
                         new Pfx(), // security.PfxConfiguration
+                        new KeyStore(), // security.KeyStoreConfiguration
                         new DirectAccessToken(), // security.authenticator.DirectAccessTokenConfiguration
                         new JwtHs256(), // security.authenticator.JwtHs256Configuration
                         new JwtRs256(), // security.authenticator.JwtRs256Configuration

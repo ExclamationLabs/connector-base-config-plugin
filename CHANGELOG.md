@@ -1,7 +1,10 @@
 # connector-base-config-plugin
 
 # Change Log
+
++ **4.1.0** - Add Keystore properties to config class generation (3/12/2025)
 + **4.0.0** - FIN-12507 - Javax to Jakarta in Config class generation (11/04/2024)
++ **3.2.0** - Add Keystore properties to config class generation (v3.x.x line only) (3/11/2025)
 + **3.1.1** - FIN-11820 - Secure RSA256 fields (05/29/2024)
 + **3.1** - FIN-492 - Make sure all auth password-type values are guarded string (05/23/2024)
 + **3.0.12** - FIN-11111 - resolve snakeyml vulnerability (12/26/2023)
