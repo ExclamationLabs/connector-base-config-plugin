@@ -54,6 +54,15 @@ class KeyStore extends ConfigurationGroup {
                  .helpText('Alias for the key in the keystore.  If not given, the entire keystore will be considered. Note, if there are multiple keys in the keystore, the first one found will be used.')
                  .required(false)
                  .confidential(true)
+                 .type(ConfigurationItemType.STRING).build(),
+         new ConfigurationItem.Builder()
+                 .name('tlsVersion', getYamlPath())
+                 .order(2305)
+                 .displayText('TLS Version')
+                 .helpText('TLS version to use for the connection.  If not given, the default version of TLSv1.3 will be used.')
+                 .defaultValue('TLSv1.3')
+                 .required(false)
+                 .confidential(false)
                  .type(ConfigurationItemType.STRING).build()
         ] as Set<ConfigurationItem>
     }
