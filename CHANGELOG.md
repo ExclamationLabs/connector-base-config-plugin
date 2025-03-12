@@ -1,6 +1,8 @@
 # connector-base-config-plugin
 
 # Change Log
+
++ **3.2.0** - Add Keystore properties to config class generation (3/11/2025)
 + **3.1.1** - FIN-11820 - Secure RSA256 fields (05/29/2024)
 + **3.1** - FIN-492 - Make sure all auth password-type values are guarded string (05/23/2024)
 + **3.0.12** - FIN-11111 - resolve snakeyml vulnerability (12/26/2023)
