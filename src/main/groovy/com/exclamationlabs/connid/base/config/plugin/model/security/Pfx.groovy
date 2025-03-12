@@ -46,7 +46,16 @@ class Pfx extends ConfigurationGroup {
                  .helpText('Password for the client key relating to the .pfx file.  If not given the `pfxPassword` value will be reused.')
                  .required(false)
                  .confidential(true)
-                 .type(ConfigurationItemType.GUARDED_STRING).build()
+                 .type(ConfigurationItemType.GUARDED_STRING).build(),
+         new ConfigurationItem.Builder()
+                 .name('tlsVersion', getYamlPath())
+                 .order(2304)
+                 .displayText('TLS Version')
+                 .helpText('TLS version to use for the connection.  If not given, the default version of TLSv1.2 will be used.')
+                 .defaultValue('TLSv1.2')
+                 .required(false)
+                 .confidential(false)
+                 .type(ConfigurationItemType.STRING).build()
         ] as Set<ConfigurationItem>
     }
 

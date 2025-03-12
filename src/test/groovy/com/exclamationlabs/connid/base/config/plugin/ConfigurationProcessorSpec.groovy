@@ -141,12 +141,14 @@ custom:
             processor.execute()
 
         then:
-            1 == 1
-            'myconn' == processor.name
-            'com.exclamationlabs.connid.base.testme.configuration' == processor.outputPackage
-            'TestMeConfiguration' == processor.outputClassName
-            processor.configurationItems
-            45 == processor.configurationItems.size()
+            verifyAll(processor) {
+                1 == 1
+                'myconn' == name
+                'com.exclamationlabs.connid.base.testme.configuration' == outputPackage
+                'TestMeConfiguration' == outputClassName
+                println "Size of configuration items: ${configurationItems.size()}"
+                46 == configurationItems.size()
+            }
     }
 
     def 'happyPath single custom required item'() {
