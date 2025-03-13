@@ -55,6 +55,14 @@ class Pfx extends ConfigurationGroup {
                  .defaultValue('TLSv1.2')
                  .required(false)
                  .confidential(false)
+                 .type(ConfigurationItemType.STRING).build(),
+         new ConfigurationItem.Builder()
+                 .name('keyAlias', getYamlPath())
+                 .order(2305)
+                 .displayText('Alias for the key in the keystore')
+                 .helpText('Alias for the key in the keystore.  If not given, the entire keystore will be considered. Note, if there are multiple keys in the keystore, the first one found will be used.')
+                 .required(false)
+                 .confidential(true)
                  .type(ConfigurationItemType.STRING).build()
         ] as Set<ConfigurationItem>
     }
